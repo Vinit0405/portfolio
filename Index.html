@@ -1,0 +1,189 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Simple Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>My Portfolio</h1>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#socialmedia">Social Media</a>
+<a href="#" id="open-contact">Contact</a>
+</nav>
+</header>
+
+<section id="home">
+</section>
+
+
+<section id="about">
+  <div class="about-content">
+    <h1>About Me</h1>
+    <h3>
+      Hi! I'm a passionate <strong>Web Developer</strong> 
+      who loves turning creative ideas into functional and visually appealing websites.
+     I enjoy working with modern web technologies like <strong>HTML, CSS, JavaScript, and React</strong>
+      to build clean and responsive designs.
+    </h3>
+    <p>
+      Besides coding, I'm also into <strong>photography</strong> — capturing real moments and creative visuals is something that inspires my design sense. I also create videos related to tech, development, and storytelling.
+    </p>
+  </div>
+</section>
+ 
+<!-- visual separator between About and Projects -->
+<div class="section-separator" aria-hidden="true"></div>
+
+<section id="projects">
+
+
+<div class="portfolio-grid">
+  <div class="portfolio-item">
+    <h3>FrameX</h3>
+    <p>Frame X is a complete photography platform designed for photographers to showcase their vision, creativity, and storytelling through professional and impactful imagery.</p>
+  </div>
+  <div class="portfolio-item">
+    <h3>JobWala</h3>
+    <p>JobWala is a full-stack job portal that connects job seekers with employers, allowing users to search and apply for jobs and recruiters to post and manage job listings through a secure and user-friendly platform.</p>
+  </div>
+  <div class="portfolio-item">
+    <h3><span class="boku-text">BokuGems</span> YouTube Channel </h3>
+    <p>Boku Gems is a gaming channel where I create and share Minecraft builds, creative gameplay, and fun gaming shorts for entertainment and inspiration.</p>
+    <a href="https://www.youtube.com/@Bokugg5" target="_blank" class="portfolio-btn">Visit Channel</a>
+  </div>
+  <div class="portfolio-item">
+    <h3><span class="vinit-text">VinitCine</span> instagram </h3>
+    <p>Creating cinematic content that tells powerful stories through visuals, emotions, and creative storytelling. Turning everyday moments into film-like experiences.</p>
+    <a href="https://www.instagram.com/vinitcine?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="portfolio-btn">Visit Page</a>
+  </div>
+</div>
+
+</section>
+
+<section id="skills">
+  <div class="skills-inner">
+    <h1>Skills</h1>
+    <div class="skills-grid" role="list">
+      <div class="skill" role="listitem">HTML</div>
+      <div class="skill" role="listitem">CSS</div>
+      <div class="skill" role="listitem">JavaScript</div>
+      <div class="skill" role="listitem">React</div>
+      <div class="skill" role="listitem">Node.js</div>
+      <div class="skill" role="listitem">Git</div>
+      <div class="skill" role="listitem">Responsive Design</div>
+      <div class="skill" role="listitem">UI/UX</div>
+      <div class="skill" role="listitem">Photography</div>
+      <div class="skill" role="listitem">Editing</div>
+      <div class="skill" role="listitem">Graphic Designing</div>
+      <div class="skill" role="listitem">Storytelling</div>
+      <div class="skill" role="listitem">Prompt Engineering</div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  
+  <div class="footer-content">
+      <div class="footer-social">
+    <a href="#" class="social" aria-label="Twitter">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#1DA1F2"/><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff" font-family="Arial, sans-serif">T</text></svg>
+    </a>
+    <a href="#" class="social" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#222"/><text x="12" y="16" text-anchor="middle" font-size="12" fill="#fff" font-family="Arial, sans-serif">GH</text></svg>
+    </a>
+    
+    <a href="#" class="social" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#0A66C2"/><text x="12" y="16" text-anchor="middle" font-size="10" fill="#fff" font-family="Arial, sans-serif">in</text></svg>
+    </a>
+  </div>
+    <p style="text-align: center; margin-top: 20px;">© 2025 My Portfolio</p>
+    <p style="text-align: center; margin-top: 10px; font-size: 0.9rem;">2026 vinit's Portfolio</p>
+  </div>
+    
+</footer>
+</body>
+<div id="contact-modal" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="close-modal" aria-label="Close">×</button>
+    <h2 id="modal-title">Contact Me</h2>
+    <form id="modal-form" action="https://formspree.io/f/xeelkbdz" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  
+</div>
+<script>
+// Function to open modal
+function openContactModal() {
+  document.getElementById('contact-modal').style.display = 'flex';
+  document.getElementById('contact-modal').setAttribute('aria-hidden','false');
+}
+
+// Function to close modal
+function closeContactModal() {
+  document.getElementById('contact-modal').style.display = 'none';
+  document.getElementById('contact-modal').setAttribute('aria-hidden','true');
+}
+
+// Auto-open modal on page load for 3 seconds
+window.addEventListener('load', function() {
+  openContactModal();
+  setTimeout(function() {
+    closeContactModal();
+  }, 3000); // 3 seconds
+});
+
+// Open modal on nav link click
+document.getElementById('open-contact').addEventListener('click', function(e){
+  e.preventDefault();
+  openContactModal();
+});
+
+// Close modal on close button click
+document.getElementById('close-modal').addEventListener('click', function(){
+  closeContactModal();
+});
+
+// Close modal when clicking outside content
+document.getElementById('contact-modal').addEventListener('click', function(e){
+  if(e.target === this){
+    closeContactModal();
+  }
+});
+
+// Form submission handler with Formspree
+document.getElementById('modal-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  
+  // Send form data to Formspree
+  fetch('https://formspree.io/f/xeelkbdz', {
+    method: 'POST',
+    body: new FormData(this),
+    headers: {
+      'Accept': 'application/json'
+    }
+  }).then(response => {
+    if (response.ok) {
+      alert('Message sent successfully!');
+      document.getElementById('modal-form').reset();
+      closeContactModal();
+    }
+  }).catch(error => {
+    alert('Error sending message. Please try again.');
+  });
+});
+</script>
+</html>

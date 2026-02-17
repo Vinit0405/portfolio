@@ -1,0 +1,579 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Optional: set a default page background color when no section covers the full viewport */
+    background-color: #111;
+    color: white;
+}
+header {
+	background-color: rgba(0,0,0,0.6);
+	padding: 5px;
+}
+nav a {
+margin: 0 10px;
+color: white;
+text-decoration: none;
+}
+
+/* Home section uses a full-cover background image */
+#home {
+	text-align: center;
+	/* Use a relative path (from Index.html) to the image in the img/ folder */
+	background-image: url("img/Picsart_25-10-13_01-17-53-454.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	min-height: 80vh; /* make it tall so the image is visible */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 80px 20px;
+	/* Keep text readable on top of the image */
+}
+/* Apply the panel overlay only to non-home, non-about sections so it doesn't cover the home/about background images */
+/* Keep the about and home sections full-bleed */
+/* Keep the about and home sections full-bleed */
+/* Keep home, about and projects full-bleed; apply panel overlay to other sections */
+/* Keep home, about, projects and skills full-bleed; apply panel overlay to other sections */
+section:not(#home):not(#about):not(#projects):not(#skills) {
+	padding: 50px 20px;
+	background-color: rgba(0,0,0,0.5);
+	margin: 20px;
+	border-radius: 10px;
+}
+.project {
+margin-bottom: 20px;
+}
+form input, form textarea {
+display: block;
+width: 100%;
+margin-bottom: 10px;
+padding: 10px;
+border-radius: 5px;
+border: none;
+}
+form button {
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+background-color: #ffffff;
+color: black;
+cursor: pointer;
+}
+footer {
+text-align: center;
+padding: 20px;
+background-color: rgba(0,0,0,0.6);
+}
+/* About section background */
+#about {
+	position: relative;
+	/* Use the image provided in the img folder */
+	background-image: url("img/Picsart_25-10-13_01-56-10-252.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: white;
+	min-height: 100vh;
+	display: flex;
+	align-items: flex-start; /* ensure content starts near the top so translateY doesn't push it off-screen */
+	padding: 30px 10px;
+	margin: 0; /* make it full-bleed */
+
+}
+
+/* Dark overlay on about so text remains readable */
+#about::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	border-radius: 0; /* no rounded corners so the overlay covers the full-bleed image */
+}
+
+#about > * {
+	position: relative;
+	z-index: 1;
+}
+
+/* Left-align the content inside About and constrain width for readable lines */
+.about-content {
+	width: 100%;
+	max-width: 1000px;
+	margin-left: 6%; /* push content to the left side */
+	color: rgb(0, 0, 0);
+	margin-top: 400px; /* move content 200px down reliably */
+	transition: margin-top 0.35s ease; /* smooth appearance */
+}
+.about-content h3 {
+	font-size: 1.4rem;
+	font-weight: 600;
+	font-family: 'Poppins', sans-serif;
+	line-height: 1.8;
+}
+.about-content h1 {
+	font-size: 3.5rem;
+	margin: 0 0 18px 0;
+	font-weight: 700;
+	font-family: 'Poppins', sans-serif;
+}
+.about-content p {
+	font-size: 1.2rem;
+	line-height: 1.6;
+	margin: 0 0 14px 0;
+	max-width: 620px; /* keep paragraphs narrow for readability */
+	font-weight: 500;
+	font-family: 'Poppins', sans-serif;
+}
+
+/* On small screens, use padding instead of translate to avoid clipping */
+@media (max-width: 600px) {
+	.about-content {
+		margin-top: 200px;
+		margin-left: 4%;
+	}
+}
+
+/* Projects section background - full-bleed with overlay */
+#projects {
+	position: relative;
+	background-image: url("img/Picsart_25-10-13_02-03-31-718.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: white;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 30px 10px;
+	margin: 0;
+}
+
+
+#projects::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	
+	z-index: 0;
+}
+
+#projects > * {
+	position: relative;
+	z-index: 1;
+}
+/* Projects heading styling below (use h2 in the HTML) */
+
+/* Projects heading and card styles */
+/* Projects main heading: centered, Poppins, large (100px) */
+#projects h1 {
+	width: 100%;
+	text-align: center;
+	font-size: 100px;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	margin: 0 0 60px 0;
+	letter-spacing: 0.5px;
+	line-height: 1;
+	color: white;
+}
+
+/* Responsive fallback for smaller screens */
+@media (max-width: 900px) {
+	#projects h1 { font-size: 48px; }
+}
+@media (max-width: 480px) {
+	#projects h1 { font-size: 2.6rem; }
+}
+
+/* Portfolio grid - 4 items in a single organized row */
+.portfolio-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 30px;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+@media (max-width: 1024px) {
+	.portfolio-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 25px;
+	}
+}
+
+@media (max-width: 768px) {
+	.portfolio-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+}
+
+.portfolio-item {
+	background: white;
+	padding: 30px;
+	border-radius: 12px;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.portfolio-item h3 {
+	font-size: 1.4rem;
+	font-weight: 700;
+	margin: 0 0 12px 0;
+	text-align: center;
+	color: #111;
+}
+
+.boku-text {
+	color: red;
+}
+
+.vinit-text {
+	color: red;
+}
+
+.portfolio-item p {
+	margin: 0 0 15px 0;
+	color: #333;
+	line-height: 1.6;
+	font-size: 0.95rem;
+}
+
+.portfolio-btn {
+	display: inline-block;
+	background-color: #1DA1F2;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 6px;
+	text-decoration: none;
+	font-weight: 600;
+	transition: background-color 0.25s ease, transform 0.25s ease;
+	text-align: center;
+	margin-top: auto;
+}
+
+.portfolio-btn:hover {
+	background-color: #1a8cd8;
+	transform: translateY(-2px);
+}
+
+.portfolio-item:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+/* Separator line between sections */
+.section-separator {
+	width: 100%;
+	height: 3px; /* increased thickness as requested */
+	background: rgba(255,255,255,0.12);
+	margin: 2px 0;
+}
+
+/* Skills section background - full-bleed with overlay */
+#skills {
+	position: relative;
+	background-image: url("img/Picsart_25-10-13_02-05-43-738.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: white;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 10px;
+	margin: 0;
+}
+
+#skills::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+}
+
+#skills > * {
+	position: relative;
+	z-index: 1;
+}
+
+/* Styled skills grid */
+.skills-inner {
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+}
+.skills-inner h1 {
+	font-size: 8rem;
+	margin-bottom: 18px;
+	letter-spacing: 0.6px;
+}
+.skills-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 18px;
+	align-items: center;
+}
+.skill {
+	background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+	border: 1px solid rgba(255,255,255,0.06);
+	padding: 18px 12px;
+	border-radius: 12px;
+	color: white;
+	font-weight: 700;
+	box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+	transform: translateY(0);
+	transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+}
+.skill:hover {
+	transform: translateY(-8px) scale(1.02);
+	box-shadow: 0 26px 60px rgba(0,0,0,0.5);
+	background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+}
+
+.skill::after {
+	content: "";
+	display: block;
+	height: 6px;
+	width: 40px;
+	margin: 12px auto 0 auto;
+	border-radius: 4px;
+	background: rgba(255,255,255,0.1);
+	transition: background 0.28s ease;
+}
+
+.skill:hover::after {
+	background: rgba(144, 238, 144, 0.8);
+}
+
+@media (max-width: 520px) {
+	.skills-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+	.skill { padding: 14px; font-size: 0.95rem; }
+}
+
+/* Footer background - full-bleed with overlay */
+footer {
+	position: relative;
+	background-image: url("img/Picsart_25-10-13_02-24-54-070.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+    min-height: 100vh;
+	color: white;
+	padding: 60px 20px 20px 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+footer::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+}
+
+footer > * {
+	position: relative;
+	z-index: 1;
+}
+
+/* Footer social icons (centered, organized) */
+.footer-social {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 25px;
+	margin-top: 30px;
+	margin-bottom: 50px;
+	flex-wrap: wrap;
+	order: 1;
+}
+
+/* Footer content at the bottom */
+.footer-content {
+	order: 2;
+	margin-top: auto;
+	text-align: center;
+	padding-bottom: 30px;
+}
+.footer-social .social {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.1);
+	color: white;
+	text-decoration: none;
+	font-weight: 700;
+	box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+	transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.footer-social .social:hover {
+	transform: translateY(-6px) scale(1.1);
+	box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.footer-social .social svg { 
+	width: 85%; 
+	height: 85%; 
+	border-radius: 50%; 
+	display: block; 
+}
+.footer-social .social svg text { 
+	font-weight: 700; 
+}
+
+.footer-social .social img {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.footer-social .social img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+	display: block;
+}
+
+/* Modal contact form styles */
+.modal {
+	display: none; /* toggled via JS */
+	position: fixed;
+	inset: 0;
+	background: rgba(0,0,0,0.7);
+	backdrop-filter: blur(5px);
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+	animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+.modal-content {
+	background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+	padding: 40px;
+	border-radius: 16px;
+	width: 90%;
+	max-width: 540px;
+	box-shadow: 0 25px 70px rgba(0,0,0,0.8), 0 0 30px rgba(255,255,255,0.1);
+	color: white;
+	border: 1px solid rgba(255,255,255,0.1);
+	animation: slideUp 0.5s ease;
+	position: relative;
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.modal-content h2 {
+	font-size: 2rem;
+	margin: 0 0 25px 0;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	background: linear-gradient(135deg, #fff, #90EE90);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.modal-close {
+	position: absolute;
+	right: 20px;
+	top: 18px;
+	background: rgba(255,255,255,0.1);
+	color: #fff;
+	border: none;
+	font-size: 28px;
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.25s ease;
+	hover: background-color 0.25s ease;
+}
+
+.modal-close:hover {
+	background: rgba(255,255,255,0.2);
+	transform: rotate(90deg);
+}
+
+.modal-content form input, .modal-content form textarea {
+	width: 100%;
+	padding: 12px;
+	margin: 10px 0;
+	border-radius: 8px;
+	border: 1px solid rgba(255,255,255,0.2);
+	background: rgba(255,255,255,0.05);
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	transition: all 0.25s ease;
+}
+
+.modal-content form input::placeholder, 
+.modal-content form textarea::placeholder {
+	color: rgba(255,255,255,0.6);
+}
+
+.modal-content form input:focus, 
+.modal-content form textarea:focus {
+	outline: none;
+	background: rgba(255,255,255,0.1);
+	border-color: rgba(144,238,144,0.5);
+	box-shadow: 0 0 10px rgba(144,238,144,0.3);
+}
+
+.modal-content form button {
+	padding: 12px 30px;
+	background: linear-gradient(135deg, #90EE90, #76FF7A);
+	color: #111;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-weight: 700;
+	font-family: 'Poppins', sans-serif;
+	width: 100%;
+	margin-top: 10px;
+	transition: all 0.25s ease;
+	font-size: 1rem;
+}
+
+.modal-content form button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(144,238,144,0.4);
+}
